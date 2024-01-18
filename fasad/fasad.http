@@ -1,0 +1,35 @@
+@fasad_HostAddress = http://localhost:5012
+
+POST {{fasad_HostAddress}}/arende/Ä666/upload
+Content-Type: application/json
+
+{
+  "arendenummer": "Ä666",
+  "handlingsTyp": "arbetshandlingar",
+  "fileName": "input.txt",
+  "base64Content": "input.txt"
+}
+
+###
+
+POST {{fasad_HostAddress}}/arende/Ä666/upload
+Content-Type: application/json
+
+{
+  "arendenummer": "Ä666",
+  "handlingsTyp": "arbetshandlingar",
+  "fileName": "input.docx",
+  "base64Content": "input.docx"
+}
+
+###
+
+POST {{fasad_HostAddress}}/arende/Ä666/convert
+Content-Type: application/json
+
+{
+  "arendenummer": "Ä666",
+  "fileName": "input.docx"
+}
+
+###
