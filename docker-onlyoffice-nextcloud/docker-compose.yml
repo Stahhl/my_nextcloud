@@ -11,6 +11,7 @@ services:
       - '80'
       - '9000'
     volumes:
+      # - ./config.php:/var/www/html/config/config.php
       - app_data:/var/www/html
   onlyoffice-document-server:
     container_name: onlyoffice-document-server
@@ -18,10 +19,14 @@ services:
     restart: always
     environment:
       - JWT_SECRET=secret
+    ports:
+      - 8081:80
     expose:
       - '80'
       - '443'
     volumes:
+      # - ./sdkjs-plugins:/var/www/onlyoffice/documentserver/sdkjs-plugins/
+      - ./plugins/myplugin:/var/www/onlyoffice/documentserver/sdkjs-plugins/myplugin
       - document_data:/var/www/onlyoffice/Data
       - document_log:/var/log/onlyoffice
   nginx:
